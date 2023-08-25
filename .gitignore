@@ -7,7 +7,5 @@ __pycache__
 data
 results
 
-docs/build
-
-docs/source/images
-docs/source/publication
+docs/_build
+docs/publication
