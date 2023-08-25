@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Neurophys's documentation!
-=====================================
+*********************************************
 
 I would like to take this opportunity to thank *Primate Research Lab facility*, *Centre for Neuroscience* and **IISc Mathematics Initiative**
 for giving me space, required help and for allowing me to carry out my *doctoral thesis* at **Indian institute of science (IISc)**. I would like to
@@ -19,18 +19,18 @@ It’s been seven years and it feels like it was just yesterday when I arrived h
 mathematician/ neuroscientist, the journey has been fascinating and mixed with all sorts of emotions. So lets get started... !!
 
 .. toctree::
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 2
+   :caption: Table of Contents:
    
    rst/overview
    rst/introduction
+   rst/goal
    rst/modules
    rst/summary
-
-
+   
 
 Indices and tables
-==================
+===========================
 
 * :ref:`genindex`
 * :ref:`modindex`

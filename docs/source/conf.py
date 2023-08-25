@@ -50,13 +50,26 @@ exclude_patterns = []
 #
 html_theme = 'sphinx_book_theme'
 
-html_logo = "images/IISc_logo.png"
+html_logo = "images/supplementary/logo_iisc.png"
 html_title = "Neurophys"
 
+nbsphinx_allow_errors = True
+
 html_theme_options = {
+
+    "logo": {
+        "text": "Neurophys",
+    },
+
     "repository_url": "https://github.com/SatyaRungta/Eye_movement_signatures_in_neck_muscles",
     "use_repository_button": True,
+    
     "show_navbar_depth": 2,
+    "collapse_navigation": False,
+    
+    "home_page_in_toc": True,
+    
+    "toc_title": "On this page",
     
 }
 

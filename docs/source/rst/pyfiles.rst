@@ -1,11 +1,5 @@
-Notebooks and Scripts
-=====================
-
-A. Ipynb notebooks
-------------------- 
-
-B. Scripts
-----------
+Scripts
+==============
 
 	Listed below are scripts
 

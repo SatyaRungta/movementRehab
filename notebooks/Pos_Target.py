@@ -86,7 +86,7 @@ for neuron_id in range(0,15,1):
 
     figfolder = 'results/posActivity/'
     figname = 'Neuron' + str(neuron_id + 1) + '_Target.jpg'
-    plt.savefig(root_path + figfolder + figname)
+    #plt.savefig(root_path + figfolder + figname)
 
     plt.close()
 

@@ -1,10 +1,19 @@
 """
 AUC curves for each neuron
 """
+
+# Root path and directory
+import sys
+import os
+
+ROOT_PATH = "E:/ADS/python/ams/isaccade"
+#os.chdir(ROOT_PATH)
+
+sys.path.insert(0, os.path.abspath('../'))
+
 import numpy as np
 import pandas as pd
 from utils.funcs.readMatfiles import *
-import os
 
 def roc_analysis(iRF,oRF):
 

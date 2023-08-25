@@ -11,16 +11,24 @@ from utils.plots.pHIST import *
 
 # Required files
 # Loading Dataset
-root_path    = 'D:/projects/python/ADS/imi/brain_machine_interface/'
-folder_path  = 'data/'
+
+ROOT_PATH = "E:/ADS/python/ams/isaccade"
+get_data  = "data"
+task      = "MG"
+recordings = "fef"
+analysis   = "population"
+subject    = "m1"
+
+path = "/".join([ROOT_PATH,get_data,task,recordings,analysis,subject])
+print(path)
 
 fname        = 'FeF1.mat'
-fpath = root_path+folder_path+fname
-data_dict1 = load_matfile(fpath)
+fpath = path+'/'+fname
+data_dict1 = load_data(fpath)
 
 fname = 'type/Nrn_cell_mf.mat'
-fpath = root_path+folder_path+fname
-data_dict2 = load_scipymat(fpath)
+fpath = path+'/'+fname
+data_dict2 = load_data(fpath)
 
 # Extracting variables from dictionary
 # From dataset1
@@ -66,7 +74,7 @@ for neuron_id in range(0,10,1):
 
     figfolder = 'results/Raster_approach/'
     figname   = 'Event_analysis'+str(neuron_id+1)+'.jpg'
-    plt.savefig(root_path + figfolder + figname)
+    #plt.savefig(root_path + figfolder + figname)
 
     plt.show()
     plt.close()

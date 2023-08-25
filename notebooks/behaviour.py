@@ -1,9 +1,13 @@
 """
 RT and HT distributions for the given sessions
 """
+import os
+import sys
+#SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+#sys.path.append(os.path.dirname(SCRIPT_DIR))
+
 import numpy as np
 from utils.funcs.readMatfiles import *
-import os
 
 # Figure for histograms
 import matplotlib.pyplot as plt
@@ -26,7 +30,7 @@ print(path)
 
 fname        = 'FeF1.mat'
 fpath = path+'/'+fname
-data_dict1 = load_matfile(fpath)
+data_dict1 = load_data(fpath)
 
 # Required variables
 HT = data_dict1['HT']
@@ -58,13 +62,13 @@ plt.xlabel('Reaction time (ms)')
 plt.ylabel('# No. of Trials')
 
 plt.suptitle('Collective data from M1 for all experimental sessions')
-#plt.show()
+plt.show()
 
 figfolder = 'results/'
 figname   = 'Task_and_behaviour.jpg'
-plt.savefig(root_path+figfolder+figname)
+#plt.savefig(root_path+figfolder+figname)
 
-plt.close()
+#plt.close()
 
 """
 

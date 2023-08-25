@@ -1,10 +1,13 @@
 Chapter 1
-============
+**************
+
+.. image:: /images/manuscript/Graphical_abstract1.png
+   :scale: 10
+   :align: center
+	
 
 Abstract
-----------
-
-** Graphical Abstract **
+============
 
 A hallmark of intelligent behavior is that we can separate intention from action. To understand the mechanism that gates
 the flow of information between motor planning and execution, we compared the activity of frontal eye field neurons with
@@ -19,7 +22,7 @@ period primes muscle activity leading to faster reaction times.
  
 
 Significance statement
-------------------------
+==========================
 
 This study shows that the temporal aspects of a motor plan in the oculomotor circuitry can be accessed by peripheral 
 neck muscles hundreds of milliseconds prior to the instruction to initiate a saccadic eye movement. The coupling between
@@ -29,7 +32,7 @@ execution.
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 2
 
-   notebooks
+   pyfiles
    utils

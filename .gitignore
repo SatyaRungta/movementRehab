@@ -7,10 +7,7 @@ __pycache__
 data
 results
 
-docs/build/doctrees
-docs/build/html/_static
-docs/build/html/_sources
+docs/build
+
 docs/source/images
 docs/source/publication
-docs/make.bat
-docs/Makefile
