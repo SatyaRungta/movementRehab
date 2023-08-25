@@ -11,7 +11,7 @@ from utils.plots.pHIST import *
 
 # Required files
 # Loading Dataset
-
+"""
 ROOT_PATH = "E:/ADS/python/ams/isaccade"
 get_data  = "data"
 task      = "MG"
@@ -78,3 +78,5 @@ for neuron_id in range(0,10,1):
 
     plt.show()
     plt.close()
+    
+"""
