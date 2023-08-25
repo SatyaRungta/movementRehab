@@ -25,7 +25,6 @@ mathematician/ neuroscientist, the journey has been fascinating and mixed with a
    rst/overview
    rst/introduction
    rst/goal
-   rst/modules
    rst/summary
    
 
