@@ -3,9 +3,9 @@ Author Name: Satya Rungta, Applied mathematics and cognitive neuroscience, IISc,
 
 ## Publications:
 1. Preparatory activity links the frontal eye field response with small amplitude motor unit recruitment of neck muscles during gaze planning.
-   link: [![DOI](https://zenodo.org/badge/353296589.svg)](https://zenodo.org/badge/latestdoi/353296589)
+   [![DOI](https://zenodo.org/badge/353296589.svg)](https://zenodo.org/badge/latestdoi/353296589)
 2. Context-specific early recruitment of small motor units in the shoulder muscle reflects a reach movement plan.
-   link: [![DOI](https://zenodo.org/badge/453617328.svg)](https://zenodo.org/badge/latestdoi/453617328)
+   [![DOI](https://zenodo.org/badge/453617328.svg)](https://zenodo.org/badge/latestdoi/453617328)
 
 ## Relevant topics and materials:
 
