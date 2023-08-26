@@ -3,7 +3,7 @@
 Author Name: Satya Rungta
 
 Publications:
-1. 
+1. DOI: 10.1152/jn.00522.2022
 
 # Figures and graph for time to event analysis for Neural and EMG data from multiple sensors
 
