@@ -1,3 +1,10 @@
+## This Repository contains documentation and thesis on central and peripheral correlates of motor planning for eye and hand movements based on Neurophsiology data
+
+Author Name: Satya Rungta
+
+Publications:
+1. 
+
 # Figures and graph for time to event analysis for Neural and EMG data from multiple sensors
 
 BMI or brain machine interface relies on electrical signals and data captured using multiple sensors. For our purpose, we use time to event analysis for analysing neuronal data and motor units using raster-based method to look at activity of different type of neurons and to search for preparatory responses in putative motor units captured using multiple electrodes placed on muscles.
