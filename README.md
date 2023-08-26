@@ -15,6 +15,7 @@ Figures and graph for time to event analysis for multiple sensors data processin
 Data: Neuro and Myo electrophysiology  
 
 BMI or brain machine interface relies on electrical signals and data captured using multiple sensors. We used time to event analysis for analysing neuronal and motor unit data using raster-based method.
+Neural signal processing (NSP), Spike extraction and isolation, Single and multi unit analysis (SUA, MUA)
 
 Some of the datascience methods used for the project are: 
 - Time series analysis
