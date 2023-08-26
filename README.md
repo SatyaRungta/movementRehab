@@ -1,14 +1,13 @@
-## This Repository contains documentation and thesis on central and peripheral correlates of motor planning for eye and hand movements based on Neurophsiology data
-Author Name: Satya Rungta
-             Applied mathematics and cognitive neuroscience
+# This Repository contains documentation and thesis on central and peripheral correlates of motor planning for eye and hand movements based on Neurophsiology data
+Author Name: Satya Rungta, Applied mathematics and cognitive neuroscience, IISc, Bengaluru
 
-# Publications:
+## Publications:
 1. Preparatory activity links the frontal eye field response with small amplitude motor unit recruitment of neck muscles during gaze planning
-link: https://zenodo.org/badge/latestdoi/353296589
+link: [![DOI](https://zenodo.org/badge/353296589.svg)](https://zenodo.org/badge/latestdoi/353296589)
 2. Context-specific early recruitment of small motor units in the shoulder muscle reflects a reach movement plan
-link: https://zenodo.org/badge/latestdoi/453617328
+link: [![DOI](https://zenodo.org/badge/453617328.svg)](https://zenodo.org/badge/latestdoi/453617328)
 
-# Relevant topics and materials:
+## Relevant topics and materials:
 
 Figures and graph for time to event analysis for multiple sensors data processing
 Data: Neuro and Myo electrophysiology  
