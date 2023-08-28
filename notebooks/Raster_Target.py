@@ -1,96 +1,106 @@
 """
 RT and HT distributions for the given sessions
 """
-import numpy as np
-from utils.funcs.readMatfiles import *
+# Root path and directory
+import sys
 import os
+
+ROOT_PATH = "E:/ADS/python/ams/isaccade"
+os.chdir(ROOT_PATH)
+sys.path.insert(0, os.path.abspath('.'))
+
+import numpy as np
+import pandas as pd
+from utils.funcs.readMatfiles import *
 
 # Figure for histograms
 import matplotlib.pyplot as plt
 from utils.plots.pHIST import *
 
-"""
-    # Required files
-    # Loading Dataset
-    ROOT_PATH = "E:/ADS/python/ams/isaccade"
-    get_data  = "data"
-    task      = "MG"
-    recordings = "fef"
-    analysis   = "population"
-    subject    = "m1"
 
-    path = "/".join([ROOT_PATH,get_data,task,recordings,analysis,subject])
-    print(path)
+# Required files
+# Loading Dataset
+ROOT_PATH = "E:/ADS/python/ams/isaccade"
+get_data  = "data"
+task      = "MG"
+recordings = "fef"
+analysis   = "population"
+subject    = "m1"
 
-    fname        = 'FeF1.mat'
-    fpath = path+'/'+fname
-    data_dict1 = load_data(fpath)
+path = "/".join([ROOT_PATH,get_data,task,recordings,analysis,subject])
+print(path)
 
-    fname = 'type/Nrn_cell_mf.mat'
-    fpath = path+'/'+fname
-    data_dict2 = load_data(fpath)
+fname        = 'nFeF.mat'
+fpath = path+'/'+fname
+data_dict1 = load_data(fpath)
 
-    # Extracting variables from dictionary
-    # From dataset1
-    SPtimeTarget = data_dict1['SPtimeTarget']
-    SPtimeGo = data_dict1['SPtimeGo']
-    SPtimeMo = data_dict1['SPtimeMo']
-    # From dataset2
-    stime = np.transpose(data_dict2['time'])
-    Mf_activity = data_dict2['Mf_activity']
-    inHT, outHT = data_dict2['HT_MF']
-    inRT, outRT = data_dict2['RT_MF']
-    inPOS, outPOS = np.transpose(data_dict2['SPOS'])
-    MF  = data_dict2['MF']
+fname = 'type/Nrn_cell_mf.mat'
+fpath = path+'/'+fname
+data_dict2 = load_data(fpath)
 
-    N = Mf_activity.shape[0]                     # No. of neurons
-    eventtarget, eventgo, eventmo = [0, 1, 2]    # Events
+# Extracting variables from dictionary
+# From dataset1
+var = 'SPtime'
+data = big_Array(data_dict1[var])
+print(data.shape)
+SPtimeTarget = data[:,0]
+SPtimeGo     = data[:,1]
+SPtimeMo     = data[:,2]
+# From dataset2
+stime = np.transpose(data_dict2['time'])
+Mf_activity = data_dict2['Mf_activity']
+inHT, outHT = data_dict2['HT_MF']
+inRT, outRT = data_dict2['RT_MF']
+inPOS, outPOS = np.transpose(data_dict2['SPOS'])
+MF  = data_dict2['MF']
 
-    # Raster and spike density functions
-    event = eventtarget
-    spike_timings = SPtimeTarget
-    iRF, oRF = [0, 1]
-    inHT, outHT   = inHT[0], outHT[0]
-    inRT, outRT   = inRT[0], outRT[0]
-    inPOS, outPOS = inPOS[0], outPOS[0]
+N = Mf_activity.shape[0]                     # No. of neurons
+eventtarget, eventgo, eventmo = [0, 1, 2]    # Events
 
-    for neuron_id in range(0,N,4):
-        fig, axs = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey=True)
-        for eg,ax in enumerate(axs.flat):
-            id = neuron_id+eg
-            # SDF : Activity profile for neuron
-            Mf    = Mf_activity[id,event]
-            inMf, outMf  = Mf[:,iRF], Mf[:,oRF]
+# Raster and spike density functions
+event = eventtarget
+spike_timings = SPtimeTarget
+iRF, oRF = [0, 1]
+inHT, outHT   = inHT[0], outHT[0]
+inRT, outRT   = inRT[0], outRT[0]
+inPOS, outPOS = inPOS[0], outPOS[0]
 
-            # Raster:
-            raster = spike_timings[id]
-            n, m = ~np.isnan(inPOS[:,id]),~np.isnan(outPOS[:,id])
-            itrial, otrial = inPOS[n,id],outPOS[m,id]
-            iHT, oHT = inHT[:,id], outHT[:,id]
-            iRT, oRT = inRT[:,id], outRT[:,id]
+for neuron_id in range(0,N,4):
+    fig, axs = plt.subplots(2, 2, figsize=(8, 5), sharex=True, sharey=True)
+    for eg,ax in enumerate(axs.flat):
+        id = neuron_id+eg
+        # SDF : Activity profile for neuron
+        Mf    = Mf_activity[id,event]
+        inMf, outMf  = Mf[:,iRF], Mf[:,oRF]
 
-            #itrial, otrial = itrial[~np.isnan(itrial)], otrial[~np.isnan(otrial)]
-            iHT, oHT = iHT[~np.isnan(iHT)], oHT[~np.isnan(oHT)]
-            iRT, oRT = iRT[~np.isnan(iRT)], oRT[~np.isnan(oRT)]
+        # Raster:
+        raster = spike_timings[id]
+        n, m = ~np.isnan(inPOS[:,id]),~np.isnan(outPOS[:,id])
+        itrial, otrial = inPOS[n,id],outPOS[m,id]
+        iHT, oHT = inHT[:,id], outHT[:,id]
+        iRT, oRT = inRT[:,id], outRT[:,id]
 
-            itrial, otrial = itrial.astype('int'), otrial.astype('int')
-            itrial = itrial-1
-            otrial = otrial-1
-            iraster, oraster = raster[itrial,:], raster[otrial,:]
+        #itrial, otrial = itrial[~np.isnan(itrial)], otrial[~np.isnan(otrial)]
+        iHT, oHT = iHT[~np.isnan(iHT)], oHT[~np.isnan(oHT)]
+        iRT, oRT = iRT[~np.isnan(iRT)], oRT[~np.isnan(oRT)]
 
-            ax.plot(iraster, np.cumsum(np.ones(iraster.shape),axis=0)+len(otrial), marker='.', linestyle='none', color=[.8, .8, .8], markersize=.5)
-            ax.plot(oraster, np.cumsum(np.ones(oraster.shape),axis=0), marker='.', linestyle='none', color=[.8, .8, .8], markersize=.5)
-            ax.plot(oRT.tolist(),range(1,len(otrial)+1,1), marker='s', linestyle='none', color= 'r', markersize=.3)
-            ax.plot(iRT.tolist(),list(range(len(oRT),len(iRT)+len(oRT),1)), marker='s', linestyle='none', color='g', markersize=.3)
-            ax.plot(stime,inMf,color='g')
-            ax.plot(stime,outMf,color='r')
-            ax.plot([0,0],[0,250],color='k')
-            ax.set_xlim(-250,1500)
-            ax.set_ylim(0,225)
-            ax.set_title('Neuron id:' + str(id + 1))
+        itrial, otrial = itrial.astype('int'), otrial.astype('int')
+        itrial = itrial-1
+        otrial = otrial-1
+        iraster, oraster = raster[itrial,:], raster[otrial,:]
 
-        fig.supxlabel('Time from target (in ms)')
-        fig.supylabel('Activity (sp/s)')
+        ax.plot(iraster, np.cumsum(np.ones(iraster.shape),axis=0)+len(otrial), marker='.', linestyle='none', color=[.8, .8, .8], markersize=.5)
+        ax.plot(oraster, np.cumsum(np.ones(oraster.shape),axis=0), marker='.', linestyle='none', color=[.8, .8, .8], markersize=.5)
+        ax.plot(oRT.tolist(),range(1,len(otrial)+1,1), marker='s', linestyle='none', color= 'r', markersize=.3)
+        ax.plot(iRT.tolist(),list(range(len(oRT),len(iRT)+len(oRT),1)), marker='s', linestyle='none', color='g', markersize=.3)
+        ax.plot(stime,inMf,color='g')
+        ax.plot(stime,outMf,color='r')
+        ax.plot([0,0],[0,250],color='k')
+        ax.set_xlim(-250,1500)
+        ax.set_ylim(0,225)
+        ax.set_title('Neuron id:' + str(id + 1))
 
-        plt.show()
-"""
+    fig.supxlabel('Time from target (in ms)')
+    fig.supylabel('Activity (sp/s)')
+
+    plt.show()

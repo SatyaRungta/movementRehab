@@ -1,9 +1,13 @@
 """
 RT and HT distributions for the given sessions
 """
-import numpy as np
-from utils.funcs.readMatfiles import *
+# Root path and directory
+import sys
 import os
+
+ROOT_PATH = "E:/ADS/python/ams/isaccade"
+os.chdir(ROOT_PATH)
+sys.path.insert(0, os.path.abspath('.'))
 
 # Figure for histograms
 import matplotlib.pyplot as plt
@@ -11,7 +15,7 @@ from utils.plots.pHIST import *
 
 # Required files
 # Loading Dataset
-"""
+
 ROOT_PATH = "E:/ADS/python/ams/isaccade"
 get_data  = "data"
 task      = "MG"
@@ -22,8 +26,8 @@ subject    = "m1"
 path = "/".join([ROOT_PATH,get_data,task,recordings,analysis,subject])
 print(path)
 
-fname        = 'FeF1.mat'
-fpath = path+'/'+fname
+fname      = 'nFeF.mat'
+fpath      = path+'/'+fname
 data_dict1 = load_data(fpath)
 
 fname = 'type/Nrn_cell_mf.mat'
@@ -32,9 +36,13 @@ data_dict2 = load_data(fpath)
 
 # Extracting variables from dictionary
 # From dataset1
-SPtimeTarget = data_dict1['SPtimeTarget']
-SPtimeGo = data_dict1['SPtimeGo']
-SPtimeMo = data_dict1['SPtimeMo']
+var = 'SPtime'
+data = big_Array(data_dict1[var])
+print(data.shape)
+SPtimeTarget = data[:,0]
+SPtimeGo     = data[:,1]
+SPtimeMo     = data[:,2]
+
 # From dataset2
 stime = np.transpose(data_dict2['time'])
 Mf_activity = data_dict2['Mf_activity']
@@ -72,11 +80,10 @@ for neuron_id in range(0,10,1):
     axs[1,1].axis('off')
     axs[1,2].axis('off')
 
-    figfolder = 'results/Raster_approach/'
-    figname   = 'Event_analysis'+str(neuron_id+1)+'.jpg'
+    #figfolder = 'results/Raster_approach/'
+    #figname   = 'Event_analysis'+str(neuron_id+1)+'.jpg'
     #plt.savefig(root_path + figfolder + figname)
 
     plt.show()
-    plt.close()
+    #plt.close()
     
-"""
